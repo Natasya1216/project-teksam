@@ -58,8 +58,8 @@ Bahan yang digunakan dalam penelitian ini adalah data dan referensi yang menduku
 ### 3.1. Justifikasi Jumlah Sampel (Analisis Cochran)
 Peneliti menggunakan pendekatan Rumus Cochran untuk menentukan minimal sampel pada populasi yang tidak diketahui jumlah pastinya (infinite population). Berdasarkan data awal, diketahui proporsi mahasiswa pengguna TikTok Shop adalah 34,9%.
 Rincian penghitungan matematisnya adalah sebagai berikut:
-	* **Diketahui:** $Z = 1,96$; $p = 0,349$; $q = 0,651$; [cite_start]$e = 0,12$ 
-]**Rumus:** $$n = \frac{Z^2 \cdot p \cdot q}{e^2} = \frac{1,96^2 \cdot 0,349 \cdot 0,651}{0,12^2} \approx 61$$ 
+**Diketahui:** $Z = 1,96$; $p = 0,349$; $q = 0,651$; $e = 0,12$ 
+**Rumus:** $$n = \frac{Z^2 \cdot p \cdot q}{e^2} = \frac{1,96^2 \cdot 0,349 \cdot 0,651}{0,12^2} \approx 61$$ 
 
 Target minimal berdasarkan rumus Cochran adalah **61 responden**. Melalui penyebaran kuesioner, diperoleh data valid dari **57 responden** (tingkat pencapaian sebesar **$93,4\%$**). Selisih 4 responden dari target awal tetap dapat diterima secara statistik karena pengujian reliabilitas instrumen menghasilkan kategori keandalan yang sangat tinggi.
 
@@ -88,18 +88,18 @@ Analisis Rata-rata per Indikator: Melalui visualisasi data menggunakan library g
 
 
 ### 3.3 Naive Estimation (Tahap 6)
-Tahap ini menghitung rata-rata kepuasan secara langsung dari 57 responden tanpa melihat latar belakang populasi asli. 
-Berdasarkan data kuesioner, rata-rata skor total adalah 252,0. Jika kita melihat proporsi dalam bentuk indeks (skala 1-5), nilai estimasi awalnya adalah:
-P ̂=  (Jumlah Responden)/(Total Responden)=250,0/(11 butir ×5)=250,0/55=4,58
-Nilai Estimasi Awal: 4,58 (dalam skala 5) atau jika menggunakan proporsi kepuasan murni, mengacu pada persentase jawaban "Puas" dari total responden.
+Tahap ini menghitung rata-rata kepuasan secara langsung dari 57 responden tanpa melihat latar belakang populasi asli. Berdasarkan data kuesioner, rata-rata skor total adalah **252,0**. Jika melihat proporsi dalam bentuk indeks (skala 1-5), nilai estimasi awalnya adalah:
 
-### 3.4 Weighting Sederhana (Tahap 7)
-Karena jumlah sampel (57) belum mencapai target Cochran (61), atau jika komposisi responden tidak seimbang, kita gunakan pembobotan agar hasil penelitian lebih akurat.
-Diketahui: 
-	Proporsi Sampel (p): (57 responden)/(61 target)=93,4% (0,934)
-	Proporsi populasi (P): 34,9% (0,349)
-	Rumus bobot:
-wi=  (Proporsi Populasi)/(Proporsi Sampel)=0,349/0,934=0,374
+$$\hat{P} = \frac{\text{Jumlah Responden}}{\text{Total Responden}} = \frac{250,0}{11 \text{ butir} \times 5} = \frac{250,0}{55} = 4,58$$ 
+
+Nilai Estimasi Awal diperoleh sebesar **4,58** (dalam skala 5).
+
+### 3.4 Weighting Sederhana
+Karena jumlah sampel (57) belum mencapai target Cochran (61), dilakukan pembobotan agar hasil penelitian lebih akurat.
+* Proporsi Sampel ($p$): $\frac{57}{61} = 93,4\%\ (0,934)$ 
+* Proporsi Populasi ($P$): $34,9\%\ (0,349)$ 
+* Rumus Bobot ($w_i$): 
+  $$w_i = \frac{\text{Proporsi Populasi}}{\text{Proporsi Sampel}} = \frac{0,349}{0,934} = 0,374$$ 
 
 ### 3.5 Perbandingan Estimasi dan Visualisasi (Tahap 8 & 9)
 | Metode Estimasi | Nilai Skor | Keterangan |
@@ -152,24 +152,92 @@ Merujuk pada kriteria nilai Alpha > 0,60, maka instrumen penelitian ini memiliki
 ## Kode Analisis RStudio (`script_analisis.R`)
 
 ```r
+# Panggil library buat baca Excel
 library(readxl)
+
+# Ganti "nama_file_kamu.xlsx" dengan nama file Excel kamu yang asli
+data <- read_excel("E:/File Kuliah/KUISIONER.xlsx") 
+
+# Cek apakah datanya beneran muncul (bakal muncul 6 baris pertama)
+head(data)
+# 1. Pastikan library aktif
+# Cek jumlah baris data yang terbaca R
+nrow(data)
 library(dplyr)
-library(ggplot2)
-library(psych)
 
-# Impor Dataset
-data <- read_excel("KUISIONER.xlsx") 
-
-# Hitung Skor Total
+# 2. Ambil hanya kolom yang isinya angka (numeric)
+# Ini otomatis mengabaikan kolom Timestamp atau Nama yang isinya teks
 data_angka <- data %>% select(where(is.numeric))
+
+# 3. Hitung Total Skor dari semua kolom angka yang ditemukan
 data$Total_Skor <- rowSums(data_angka, na.rm = TRUE)
 
-# Statistik Deskriptif
+# 4. Analisis Deskriptif
 hasil_akhir <- data %>%
   summarise(
     Mean_Kepuasan   = mean(Total_Skor, na.rm = TRUE),
     Median_Kepuasan = median(Total_Skor, na.rm = TRUE),
-    SD_Kepuasan     = sd(Total_Skor, na.rm = TRUE)
+    SD_Kepuasan     = sd(Total_Skor, na.rm = TRUE),
+    Skor_Terkecil   = min(Total_Skor, na.rm = TRUE),
+    Skor_Terbesar   = max(Total_Skor, na.rm = TRUE)
   )
+
+# 5. Tampilkan hasil
+print("--- BERHASIL DIHITUNG ---")
 print(hasil_akhir)
+
+# --- BAGIAN VISUALISASI DATA ---
+
+# 1. Hitung rata-rata tiap kolom pertanyaan (yang isinya angka)
+# Kita simpan hasilnya ke variabel 'rata_rata_per_soal'
+rata_rata_per_soal <- colMeans(data_angka, na.rm = TRUE)
+
+# 2. Ubah hasil hitungan tadi jadi tabel (data frame) supaya bisa dibuat grafik
+df_rata <- data.frame(
+  Indikator = names(rata_rata_per_soal),
+  Skor_Rata_Rata = as.numeric(rata_rata_per_soal)
+)
+
+# 3. Print hasilnya di Console biar kamu bisa lihat angkanya
+print("--- RATA-RATA SKOR PER SOAL ---")
+print(df_rata)
+
+# 4. Bikin Grafik Bar Chart-nya
+library(ggplot2)
+
+plot_rata <- ggplot(df_rata, aes(x = Indikator, y = Skor_Rata_Rata, fill = Indikator)) +
+  geom_bar(stat = "identity", color = "black", alpha = 0.8) +
+  geom_text(aes(label = round(Skor_Rata_Rata, 2)), vjust = -0.5, size = 4) + # Munculin angka di atas bar
+  ylim(0, 5) + # Karena skala Likert maksimal 5
+  labs(title = "Rata-rata Kepuasan per Indikator TikTok Shop",
+       x = "Pertanyaan / Indikator",
+       y = "Rerata Skor (1-5)") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# 5. Tampilkan grafiknya
+print(plot_rata)
+
+# --- ANALISIS VALIDITAS & RELIABILITAS ---
+
+# 1. Load library secara rapi
+library(dplyr)
+library(ggplot2)
+library(psych)
+
+# 2. Uji Validitas (Korelasi Pearson)
+# Kita bandingkan tiap item (P1-P5) dengan Total_Skor
+validitas <- cor(data_angka, data$Total_Skor, use = "complete.obs")
+print("--- HASIL UJI VALIDITAS ---")
+print(validitas)
+
+# 3. Uji Reliabilitas (Pakai psych:: untuk menghindari konflik)
+# check.keys = TRUE otomatis mendeteksi jika ada soal yang arahnya terbalik
+hasil_alpha <- psych::alpha(data_angka, check.keys = TRUE)
+
+print("--- HASIL NILAI CRONBACH ALPHA ---")
+print(hasil_alpha$alpha.drop)
+print(hasil_alpha$total$raw_alpha)
+
+
 
