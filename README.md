@@ -38,20 +38,20 @@ Bahan yang digunakan dalam penelitian ini adalah data dan referensi yang menduku
 2.	Library R: Paket tambahan dalam RStudio seperti `dplyr` (manajemen data), `ggplot2 `(visualisasi), dan `psych` (analisis psikometri/reliabilitas).
 
 ### 2.2 Prosedur Percobaan
-**1.	Tahap Persiapan:**
+1.	Tahap Persiapan:
 - Menentukan indikator kepuasan (kemudahan, harga, pelayanan, dll).
 - Menyusun 11 butir pernyataan dalam bentuk kuesioner menggunakan Skala Likert (1-5).
-**2.	Tahap Pengumpulan Data:**
+2.	Tahap Pengumpulan Data:
 - Menyebarkan tautan Google Form kepada mahasiswa melalui media sosial atau pesan instan.
 - Memantau jumlah responden hingga mencapai jumlah minimal sesuai perhitungan Cochran (57 responden).
-**3.	Tahap Tabulasi Data:**
+3.	Tahap Tabulasi Data:
 - Mengunduh hasil kuesioner dalam format .csv atau .xlsx.
 - Melakukan pembersihan data (data cleaning) untuk memastikan tidak ada jawaban yang kosong.
-**4.	Tahap Analisis Data (Running Code di RStudio):**
+4.	Tahap Analisis Data (Running Code di RStudio):
 - Impor Data: Memasukkan dataset ke dalam environment RStudio.
 - Deskripsi Statistik: Menghitung nilai mean, median, dan standar deviasi untuk melihat gambaran umum kepuasan.
 - Visualisasi: Membuat grafik batang (bar chart) untuk mempermudah pembacaan rata-rata skor per indikator.
-**5.	Tahap Interpretasi:**
+5.	Tahap Interpretasi:
 - Membahas indikator mana yang memiliki skor tertinggi dan terendah sebagai bahan evaluasi.
 
 ## Hasil dan Pembahasan
