@@ -78,8 +78,7 @@ Berdasarkan hasil pengolahan data, diperoleh gambaran umum mengenai tingkat kepu
 
 
 Analisis Rata-rata per Indikator: Melalui visualisasi data menggunakan library ggplot2, diperoleh urutan tingkat kepuasan per indikator (skala 1-5):
-
-
+[Grafik Rata-rata Kepuasan](Image.png)
 
 #### Analisis Rata-rata Skor per Indikator (Skala 1-5):
 * **Kepuasan Tertinggi:** Indikator *"TikTok Shop mudah digunakan saat berbelanja"* dan *"TikTok Shop menyediakan banyak pilihan produk"* menempati peringkat teratas dengan skor rerata **4,04**.
