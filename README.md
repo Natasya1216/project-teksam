@@ -78,7 +78,7 @@ Berdasarkan hasil pengolahan data, diperoleh gambaran umum mengenai tingkat kepu
 
 
 Analisis Rata-rata per Indikator: Melalui visualisasi data menggunakan library ggplot2, diperoleh urutan tingkat kepuasan per indikator (skala 1-5):
-[Grafik Rata-rata Kepuasan](image.png)
+![Grafik Rata-rata Kepuasan](image.png)
 
 #### Analisis Rata-rata Skor per Indikator (Skala 1-5):
 * **Kepuasan Tertinggi:** Indikator *"TikTok Shop mudah digunakan saat berbelanja"* dan *"TikTok Shop menyediakan banyak pilihan produk"* menempati peringkat teratas dengan skor rerata **4,04**.
@@ -137,7 +137,7 @@ Merujuk pada kriteria nilai Alpha > 0,60, maka instrumen penelitian ini memiliki
 
 ### 4.1 Kesimpulan
 1. **Validitas Riset:** Semua instrumen pertanyaan kuesioner terbukti valid ($R_{hitung} \text{ antara } 0,509 - 0,846 > 0,260$) dan sangat reliabel ($\alpha = 0,878$), menandakan konsistensi data yang tinggi.
-2. **Kondisi Kepuasan:** Mahasiswa Universitas Mataram secara umum menunjukkan tingkat kepuasan yang baik dalam berbelanja di TikTok Shop, dengan rata-rata akumulasi skor bertengger di angka **42,0** dari rentang nilai 11-55.
+2. **Kondisi Kepuasan:** Mahasiswa secara umum menunjukkan tingkat kepuasan yang baik dalam berbelanja di TikTok Shop, dengan rata-rata akumulasi skor bertengger di angka **42,0** dari rentang nilai 11-55.
 3. **Aspek Keunggulan:** Faktor utama penarik kepuasan didorong oleh aspek kepraktisan sistem aplikasi serta melimpahnya variasi ketersediaan barang jualan (skor **4,04**).
 4. **Aspek Evaluasi:** Kelemahan utama yang dirasakan konsumen berakar pada kekurangjelasan rincian detail produk (skor **3,60**) dan ditemukannya kasus ketidaksesuaian fisik produk asli dengan klaim deskripsi toko (skor **3,63**).
 
@@ -145,8 +145,6 @@ Merujuk pada kriteria nilai Alpha > 0,60, maka instrumen penelitian ini memiliki
 * **Pihak Vendor (TikTok Shop):** Diharapkan meningkatkan filter regulasi dan sanksi tegas kepada seller/merchant nakal yang memasang deskripsi produk tidak akurat atau menipu demi menjaga kepuasan jangka panjang pengguna.
 * **Sisi Konsumen (Mahasiswa):** Disarankan tidak tergiur harga murah secara instan dan membiasakan diri menyortir kolom ulasan berbasis bukti foto atau rekaman video riil pembeli sebelumnya.
 * **Penelitian Lanjutan:** Direkomendasikan mengganti teknik pengambilan sampel ke arah *Probability Sampling* agar hasil estimasi dapat digeneralisasikan secara meluas pada populasi mahasiswa berskala makro.
-
-
 
 
 ## Kode Analisis RStudio (`script_analisis.R`)
@@ -240,6 +238,6 @@ print(hasil_alpha$alpha.drop)
 print(hasil_alpha$total$raw_alpha)
 
 ```
-[link kuisioner:](https://forms.gle/GtJ9km9ev4iMpNxH8)
+![link kuisioner:](https://forms.gle/GtJ9km9ev4iMpNxH8)
 
 
