@@ -1,5 +1,5 @@
 # project-teksam
-
+## Tingkat Kepuasan Mahasiswa terhadap Penggunaan Tiktok Shop
 ## Pendahuluan
 ### Latar Belakang
 Perkembangan teknologi digital telah mengubah perilaku konsumsi masyarakat, khususnya melalui integrasi media sosial dan e-commerce atau yang dikenal dengan istilah social commerce. Salah satu platform yang mendominasi tren ini adalah TikTok Shop. Dengan algoritma yang personal dan fitur video pendek, TikTok Shop memberikan pengalaman belanja yang interaktif bagi penggunanya.
@@ -89,7 +89,7 @@ Analisis Rata-rata per Indikator: Melalui visualisasi data menggunakan library g
 ### 3.3 Naive Estimation (Tahap 6)
 Tahap ini menghitung rata-rata kepuasan secara langsung dari 57 responden tanpa melihat latar belakang populasi asli. Berdasarkan data kuesioner, rata-rata skor total adalah **252,0**. Jika melihat proporsi dalam bentuk indeks (skala 1-5), nilai estimasi awalnya adalah:
 
-$$\hat{P} = \frac{\text{Jumlah Responden}}{\text{Total Responden}} = \frac{250,0}{11 \text{ butir} \times 5} = \frac{250,0}{55} = 4,58$$ 
+$$\hat{P} = \frac{\text{Jumlah Responden}}{\text{Total Responden}} = \frac{252,0}{11 \text{ butir} \times 5} = \frac{252,0}{55} = 4,58$$ 
 
 Nilai Estimasi Awal diperoleh sebesar **4,58** (dalam skala 5).
 
@@ -99,6 +99,8 @@ Karena jumlah sampel (57) belum mencapai target Cochran (61), dilakukan pembobot
 * Proporsi Populasi ($P$): $34,9\%\ (0,349)$ 
 * Rumus Bobot ($w_i$): 
   $$w_i = \frac{\text{Proporsi Populasi}}{\text{Proporsi Sampel}} = \frac{0,349}{0,934} = 0,374$$ 
+
+Nilai bobot sebesar **0,374** ini berfungsi sebagai faktor pengoreksi kemiringan sebaran data pada sampel *non-probability*.
 
 ### 3.5 Perbandingan Estimasi dan Visualisasi (Tahap 8 & 9)
 | Metode Estimasi | Nilai Skor | Keterangan |
@@ -238,6 +240,6 @@ print(hasil_alpha$alpha.drop)
 print(hasil_alpha$total$raw_alpha)
 
 ```
-![link kuisioner:](https://forms.gle/GtJ9km9ev4iMpNxH8)
+[link kuisioner:](https://forms.gle/GtJ9km9ev4iMpNxH8)
 
 
