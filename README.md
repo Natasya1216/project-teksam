@@ -239,5 +239,7 @@ print("--- HASIL NILAI CRONBACH ALPHA ---")
 print(hasil_alpha$alpha.drop)
 print(hasil_alpha$total$raw_alpha)
 
+```
+[link kuisioner:](https://forms.gle/GtJ9km9ev4iMpNxH8)
 
 
