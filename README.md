@@ -132,6 +132,7 @@ Uji reliabilitas menggunakan nilai *Cronbach's Alpha*. Rentang nilai yang dipero
 | Variabel Penelitian | Cronbach's Alpha | Standar Batas | Keterangan |
 | :--- | :---: | :---: | :---: |
 | **Kepuasan Mahasiswa terhadap TikTok Shop** (11 Indikator) | 0,878 | $> 0,60$ | **Sangat Reliabel** |
+
 Merujuk pada kriteria nilai Alpha > 0,60, maka instrumen penelitian ini memiliki reliabilitas yang sangat tinggi (Sangat Reliabel). Hal ini menunjukkan bahwa kuesioner tersebut konsisten jika digunakan untuk pengukuran berulang.
 
 ### 4.1 Kesimpulan
